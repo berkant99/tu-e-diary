@@ -1,0 +1,7 @@
+<?php
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'e-diary');
+define('EMAIL', 'berko_99@abv.bg');
+define('PASS', 'Berkant99*');

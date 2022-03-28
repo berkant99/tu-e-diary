@@ -1,0 +1,229 @@
+.container {
+    max-width: 450px;
+    padding: 0 20px;
+    margin: 100px auto;
+}
+
+.wrapper {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+}
+
+.wrapper img {
+    display: block;
+    max-width: 100%;
+    height: auto
+}
+
+.wrapper .form-title {
+    text-align: center;
+    color: var(--main-color);
+    padding: 15px;
+    font-size: 22px;
+    font-family: 'Mulish', sans-serif;
+    font-weight: bold;
+}
+
+.wrapper form {
+    padding: 5px 30px 5px 30px;
+    margin-top: 25px;
+    /*t, r, b, l*/
+}
+
+.wrapper form .field {
+    height: 45px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.wrapper form .field input,
+button {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 15px;
+    color: #999;
+    padding: 0 20px;
+    border: 1px solid lightgrey;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.wrapper form .field label {
+    position: absolute;
+    top: 47%;
+    left: 20px;
+    color: #999;
+    font-weight: 400;
+    font-size: 15px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.wrapper form .field span {
+    color: #999;
+    display: block;
+    position: relative;
+    color: #e74c3c;
+    left: 0;
+    bottom: 0;
+    visibility: hidden;
+    font-size: 12px;
+    padding-left: 20px;
+}
+
+.wrapper .field .fa-eye,
+.wrapper .field .fa-eye-slash {
+    position: absolute;
+    top: 27%;
+    right: 5%;
+    color: #999;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.fa-eye:hover,
+.fa-eye-slash:hover {
+    cursor: pointer;
+}
+
+.wrapper form ul {
+    display: none;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    padding-left: 20px;
+}
+
+.wrapper form ul li {
+    list-style: none;
+    color: #ccc;
+    transition: all 0.1s ease;
+}
+
+.wrapper form .success {
+    color: rgb(41, 148, 41);
+    font-weight: bold;
+}
+
+.wrapper form .fa-check {
+    display: none;
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+.wrapper form .show {
+    display: inline-block;
+}
+
+.wrapper form .focused input {
+    border-color: var(--main-color);
+    box-shadow: inset 0 0 2px 2px rgba(111, 124, 199, 0.25);
+}
+
+.wrapper form .focused label {
+    top: 0%;
+    font-size: 13px;
+    font-weight: bolder;
+    color: var(--main-color);
+    background: #fff;
+    transform: translateY(-50%);
+}
+
+.wrapper form .error {
+    margin-bottom: 35px;
+}
+
+.wrapper form .error span {
+    visibility: visible;
+}
+
+.wrapper form .error input {
+    border-color: #e74c3c;
+    box-shadow: inset 0 0 2px 2px rgba(231, 76, 60, 0.25);
+}
+
+.wrapper form .error label {
+    top: 0%;
+    font-size: 13px;
+    font-weight: bolder;
+    color: #e74c3c;
+    background: white;
+    transform: translateY(-50%);
+}
+
+.wrapper form .forgotten-pass {
+    margin: -20px 0 25px 10px;
+}
+
+.wrapper form .link-text {
+    margin: -5px 0 20px 0;
+    text-align: center;
+}
+
+.wrapper form .forgotten-pass a,
+.wrapper form .link-text a {
+    color: var(--main-color);
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.wrapper form .forgotten-pass a:hover,
+.wrapper form .link-text a:hover {
+    text-decoration: none;
+    font-weight: 550;
+}
+
+form .field button {
+    color: #fff;
+    border: none;
+    padding-left: 0;
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+    background: var(--main-color);
+    transition: all 0.3s ease;
+}
+
+form .field button:active {
+    transform: scale(0.90);
+}
+
+form .field button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1px 10px 0 var(--main-color);
+}
+
+hr {
+    color: var(--main-color);
+    background-color: var(--main-color);
+    height: 2px;
+    border: none;
+}
+
+@media(max-width: 410px) {
+    .alert .text {
+        font-size: 12px;
+    }
+    .alert .icon {
+        font-size: 15px;
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media(max-width: 360px) {
+    .alert .text {
+        font-size: 11px;
+    }
+    .alert .icon i {
+        font-size: 13px;
+        width: 25px;
+        height: 25px;
+    }
+    .field span {
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap');
+nav {
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15)!important;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-width: 300px;
+    position: fixed;
+    top: 0;
+    padding: 0 15px;
+    background-color: #fff!important;
+    font-family: 'Mulish', sans-serif;
+    color: var(--main-color);
+    z-index: 200;
+}
+
+nav .logo img {
+    height: auto;
+    max-width: 330px;
+}
+
+nav .right-menu,
+nav .right-menu .user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--main-color);
+}
+
+nav .logout i {
+    font-size: 25px;
+    transform: rotate(180deg);
+    transition: all 0.2s ease;
+}
+
+nav .logout:hover {
+    transform: scale(1.2);
+}
+
+nav .user-info img {
+    margin: 0 10px;
+    height: auto;
+    width: 45px;
+    box-shadow: 0 0.1rem 0.5rem 0 rgba(58, 59, 69, 0.30)!important;
+    border-radius: 50%;
+}
+
+nav .fa-bell-o {
+    font-size: 26px;
+    margin-right: 10px;
+}
+
+nav .fa-bell-o:hover {
+    animation: shake 2s infinite;
+}
+
+
+/* Close menu button */
+
+#menu_checkbox {
+    display: none;
+}
+
+nav label {
+    position: relative;
+    display: none;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+nav label div {
+    position: relative;
+    height: 5px;
+    background-color: var(--main-color);
+    margin-bottom: 5px;
+    transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width, 0.3s ease right;
+    border-radius: 2px;
+}
+
+nav label div:first-child {
+    transform-origin: 0;
+}
+
+nav label div:last-child {
+    margin-bottom: 0;
+    transform-origin: 30px;
+}
+
+nav #menu_checkbox:checked+label div:first-child {
+    top: 0px;
+    right: -5px;
+    transform: rotateZ(45deg);
+}
+
+nav #menu_checkbox:checked+label div:last-child {
+    top: 0px;
+    left: -5px;
+    transform: rotateZ(45deg);
+}
+
+nav #menu_checkbox:checked+label div:nth-child(2) {
+    transform: rotateZ(-45deg);
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(10deg);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+nav .unread-msg {
+    color: #fff;
+    font-size: 12px;
+    position: relative;
+    top: -13px;
+    right: -15px;
+    padding: 2px;
+    width: 18px;
+    height: 18px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.dropdown-msg-menu {
+    position: fixed;
+    background-color: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: none;
+    top: 70px;
+    z-index: 200;
+    left: calc(100% - 260px);
+    width: 260px;
+    min-width: 260px;
+    max-height: 130px;
+    box-shadow: 0 1.65rem 1.5rem 0 rgba(58, 59, 69, .15)!important;
+}
+
+
+/* Hide scroll bar, but while still being able to scroll */
+
+.dropdown-msg-menu {
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.dropdown-msg-menu::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+.dropdown-msg-menu ul {
+    list-style: none;
+}
+
+.dropdown-msg-menu ul li {
+    font-size: 12px;
+}
+
+.dropdown-msg-menu .vr-group .date,
+.dropdown-msg-menu .vr-group .time {
+    color: #ccc;
+    font-size: 9px;
+}
+
+.dropdown-msg-menu .msg {
+    cursor: pointer;
+    font-weight: 500;
+    padding: 4px 12px;
+}
+
+.dropdown-msg-menu .msg:hover {
+    transform: translateY(-2px);
+    transition: 0.2s;
+    background-color: #f8f8f8;
+}
+
+@media(max-width: 620px) {
+    nav .username {
+        white-space: nowrap;
+    }
+    nav .logo img {
+        height: auto;
+        max-width: 55px;
+        content: url(/e-diary/assets/images/icon-2.png);
+    }
+    nav label {
+        display: block;
+    }
+    #idx-lgt {
+        display: none;
+    }
+}
+
+@media(max-height: 520px) {
+    nav label {
+        display: block;
+    }
+    #idx-lgt {
+        display: none;
+    }
+}
+
+.nav-menu {
+    background-color: #fff!important;
+    width: 200px;
+    height: calc(100% - 70px);
+    min-height: 450px;
+    min-width: 200px;
+    position: fixed;
+    top: 70px;
+    color: var(--main-color);
+    padding: 15px;
+    box-shadow: 0 1.65rem 1.5rem 0 rgba(58, 59, 69, .15)!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.5s;
+    z-index: 200;
+}
+
+.nav-menu ul {
+    position: relative;
+    left: -15px;
+    width: 100%;
+}
+
+.nav-menu ul li {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    list-style: none;
+}
+
+.nav-menu ul li a {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--main-color);
+    transition: transform 0.3s;
+}
+
+.nav-menu ul li a:hover {
+    transform: scale(1.1);
+}
+
+.nav-menu ul li a .icon {
+    position: relative;
+    min-width: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.nav-menu ul li a .title {
+    font-size: 17px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-menu .copyright {
+    position: relative;
+    width: 100%;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.nav-menu .fa-arrow-right-from-bracket {
+    transform: rotate(180deg);
+}
+
+.nav-menu ul li:last-child {
+    display: none;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+@media(max-width: 630px),
+(max-height: 520px) {
+    .nav-menu {
+        left: -200px;
+    }
+    .active {
+        left: 0;
+        width: 200px;
+    }
+    .blur-main {
+        filter: blur(5px);
+        pointer-events: none;
+    }
+    .main {
+        left: 0;
+        width: 100%;
+    }
+    .nav-menu ul li:last-child {
+        display: block;
+    }
+}
