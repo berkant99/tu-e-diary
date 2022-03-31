@@ -15,6 +15,7 @@ if (isset($_SESSION['email-reset'])) {
     unset($_SESSION['email-reset']);
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php';
+print_r($_SESSION);
 ?>
 <div class="container">
     <div class="wrapper">
@@ -40,7 +41,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php';
                     <i class="fa fa-check" aria-hidden="true"></i>
                 </div>
                 <div class="text"><?php echo $_SESSION['password-change-msg'] ?></div>
-                <div class="close-icon"><i class="fa-solid fa-xmark" id="hide-alert" aria-hidden="true"></i></div>
+                <div></div>
             </div>
         <?php unset($_SESSION['password-change-msg']);
         endif; ?>

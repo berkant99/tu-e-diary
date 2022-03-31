@@ -16,22 +16,18 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php'; ?>
         </div>
     </a>
 </nav>
-<div class="container">
+<div class="container" style="margin-top: 170px;">
     <div class="wrapper">
         <div class="form-title">Промяна на парола</div>
         <hr>
-        <?php if (isset($_SESSION['code-sent-msg'])) : ?>
-            <div class="alert alert-success">
-                <div class="icon">
-                    <i class="fa fa-check" aria-hidden="true"></i>
-                </div>
-                <div class="text"><?php echo $_SESSION['code-sent-msg'] ?></div>
-                <div class="close-icon"><i class="fa-solid fa-xmark" id="hide-alert" aria-hidden="true"></i></div>
+        <div class="alert alert-success" style="display: none;">
+            <div class="icon">
+                <i class="fa fa-check" aria-hidden="true"></i>
             </div>
-        <?php
-        endif;
-        unset($_SESSION['code-sent-msg']);
-        ?>
+            <div class="text">Изпратихме ключ за подновяване на паролата до <?php echo $_SESSION['email-reset'] ?><br />
+                Ключът е валиден в следващите 30 минути.</div>
+            <div></div>
+        </div>
         <div class="alert alert-error" style="display: none;">
             <div class="icon">
                 <i class="fa-solid fa-exclamation" aria-hidden="true"></i>

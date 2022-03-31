@@ -33,7 +33,7 @@ btn.onclick = () => {
                 if (xhr.status === 200) {
                     let data = xhr.response;
                     if (data === "success") {
-                        location.href = "index.php";
+                        location.href = "email-verification.php";
                     }
                     else if (data != '') {
                         warningStyle.css('display', 'none');

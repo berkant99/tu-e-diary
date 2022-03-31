@@ -25,25 +25,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php'; ?>
     <div class="wrapper">
         <div class="form-title">Потвърждаване на имейл</div>
         <hr>
-        <?php if (isset($_SESSION['email']) && !isset($_SESSION['code-send-msg'])) : ?>
-            <div class="alert alert-warning">
-                <div class="icon">
-                    <i class="fa-solid fa-exclamation" aria-hidden="true"></i>
-                </div>
-                <div class="text">
-                    Изпратен бе шестцифрен код за потвърждение на адрес <?php echo $_SESSION['email'] ?>.<br>
-                    Кодът е валиден в продължение на 30 минути!
-                </div>
+        <div class="alert alert-success" style="display: none;">
+            <div class="icon">
+                <i class="fa-solid fa-check" aria-hidden="true"></i>
             </div>
-        <?php else : ?>
-            <div class="alert alert-success">
-                <div class="icon">
-                    <i class="fa fa-check" aria-hidden="true"></i>
-                </div>
-                <div class="text"><?php echo $_SESSION['code-send-msg'] ?></div>
-                <div class="close-icon"><i class="fa-solid fa-xmark" id="hide-alert" aria-hidden="true"></i></div>
+            <div class="text">
+                Изпратен е шестцифрен код за потвърждение на адрес <?php echo $_SESSION['email'] ?>.<br>
+                Кодът е валиден в продължение на 30 минути!
             </div>
-        <?php endif; ?>
+            <div></div>
+        </div>
         <div class="alert alert-error" style="display: none;">
             <div class="icon">
                 <i class="fa-solid fa-exclamation" aria-hidden="true"></i>

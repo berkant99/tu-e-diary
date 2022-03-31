@@ -16,7 +16,7 @@ if (isset($_SESSION['email-reset'])) {
         </div>
     </a>
 </nav>
-<div class="container">
+<div class="container" style="margin-top: 200px;">
     <div class="wrapper">
         <div class="form-title">Забравена парола</div>
         <hr>

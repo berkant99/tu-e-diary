@@ -14,7 +14,6 @@ if (!empty($_POST['newPass-reset']) && !empty($_POST['repeatPass-reset']) && !em
                 $updatePassword = $conn->query("UPDATE st_login SET password='" . $password . "', code = NULL, code_expire_in = NULL WHERE email= '" . $email . "'");
                 if ($updatePassword == TRUE) {
                     echo "success";
-                    unset($_SESSION['code-sent-msg']);
                     $_SESSION['password-change-msg'] = 'Успешно променихте вашата парола!';
                     exit();
                 } else {

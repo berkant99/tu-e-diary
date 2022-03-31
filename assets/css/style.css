@@ -16,7 +16,7 @@
 body {
     background: var(--bg-color);
     min-width: 350px;
-    min-height: 100vh;
+    min-height: 100%;
     overflow-y: visible;
     overflow-x: hidden;
     -ms-overflow-style: none;

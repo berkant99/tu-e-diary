@@ -22,7 +22,7 @@ $(document).ready(function () {
     });
 
     /* hide success message onload */
-    setTimeout(function () { $('.alert-success').fadeOut(1000) }, 5000);
+    setTimeout(function () { $('.alert-success').fadeOut(1000) }, 10000);
 
     /* show or hide password */
     function hideOrShowPass(passId, iconId) {
@@ -60,6 +60,7 @@ $(document).ready(function () {
     $('nav .fa-bell-o').click(function () {
         if ($('.dropdown-msg-menu').css('display') == 'none') {
             $('.dropdown-msg-menu').slideDown('slow');
+            $('.dropdown-msg-menu').scrollTop(0);
         } else {
             $('.dropdown-msg-menu').slideUp('slow');
         }
@@ -71,46 +72,6 @@ $(document).ready(function () {
         }
     });
     //end menu
-
-    // formCheckInputs('#student-login-form');
-    // formCheckInputs('#email-verification-form');
-    // formCheckInputs('#first-signin-form');
-    // formCheckInputs('#forgotten-pass-form');
-    // formCheckInputs('#reset-password-form');
-
-    // function isEmail(email) {
-    //     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-    // }
-
-    // function checkEmail(emailId, errorId) {
-    //     if (!isEmail($('#' + emailId).val())) {
-    //         if ($('#' + emailId).val() != '') {
-    //             changeSpanErrorText(emailId, errorId, 'Въведете валиден имейл адрес!');
-    //         }
-    //         return false;
-    //     }
-    //     else {
-    //         return true;
-    //     }
-    // }
-
-    
-
-    // function changeSpanErrorText(inputId, spanId, text) {
-    //     setError(inputId);
-    //     $('#' + spanId).text(text);
-    // }
-
-    // $('#first-signin-form').submit(function (e) {
-    //     checkPasswords(e, 'newPass', 'repeatPass');
-    //     if (!checkEmail('email', 'emailError')) {
-    //         e.preventDefault();
-    //     }
-    // });
-
-    // $('#reset-password-form').submit(function (e) {
-    //     checkPasswords(e, 'newPass-reset', 'repeatPass-reset');
-    // });
 
     //Password check
     var hasNumber = /\d/;
@@ -176,10 +137,4 @@ $(document).ready(function () {
 
     passAnimation('#newPass', '#first-signin-form');
     passAnimation('#newPass-reset', '#reset-password-form');
-
-    // $('#forgotten-pass-form').submit(function (e) {
-    //     if (!checkEmail('email', 'emailError')) {
-    //         e.preventDefault();
-    //     }
-    // });
 });

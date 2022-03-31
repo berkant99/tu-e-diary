@@ -7,7 +7,6 @@
 
 .msg-cntr .box .card {
     cursor: default;
-    padding: 10px;
 }
 
 .user-box {
@@ -26,6 +25,27 @@
     width: 100%;
     max-width: calc(100% - 400px);
     transition: 0.5s;
+    padding: 15px;
+    height: 80vh;
+}
+
+.msg-box .vr-group{
+    justify-content: center;
+    height: 100%;
+}
+
+.msg-box .vr-group i{
+    color: var(--main-color);
+    font-size: 60px;
+    text-shadow: 0 0 5px;
+}
+
+.msg-box .vr-group .text{
+    color: var(--main-color);
+    font-size: 22px;
+    white-space: nowrap;
+    margin-top: 10px;
+    text-shadow: 0 0px 2px 2px rgb(0 0 0 / 3%);
 }
 
 .msg-cntr .hr-group {
@@ -124,6 +144,7 @@
     border-bottom: 1px solid #e6e6e6;
     justify-content: space-between;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .users-list a:last-child {
@@ -139,7 +160,7 @@
 
 .users-list a .details p {
     color: #67676a;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .users-list a .status-dot {
@@ -152,11 +173,6 @@
 
 .users-list a .status-dot.offline {
     color: #ababab;
-}
-
-.users-list a:hover {
-    background-color: #f8f8f8;
-    transform: scale(0.99);
 }
 
 #usr-not-found-err {
@@ -174,11 +190,174 @@
     top: -90%;
     left: -15%;
 }
+
 .status-dot:hover .status-text {
     visibility: visible;
 }
 
+
+/*Chat area style*/
+
+.chat-area {
+    padding: 0 50px;
+    height: 100%;
+    /* width: 100%; */
+}
+
+.chat-area header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.chat-area header .back-icon {
+    color: var(--main-color);
+    font-size: 24px;
+    position: absolute;
+    right: 65px;
+    cursor: pointer;
+}
+
+.chat-area header img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.chat-area header .details span {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.chat-area header .details p {
+    font-size: 14px;
+    color: #67676a;
+}
+
+.chat-box {
+    position: relative;
+    min-height: calc(100% - 130px);
+    max-height:  calc(100% - 130px);
+    overflow-y: auto;
+    padding: 10px 20px 20px 20px;
+    background: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%), inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
+}
+
+.chat-box::-webkit-scrollbar {
+    width: 0px;
+}
+
+.chat-box .text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: calc(100% - 50px);
+    text-align: center;
+    color: #333;
+    transform: translate(-50%, -50%);
+}
+
+.chat-box .chat {
+    margin: 15px 0;
+}
+
+.chat-box .chat p {
+    word-wrap: break-word;
+    font-size: 14px;
+    padding: 8px 16px;
+    box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0rem 16px 16px -16px rgb(0 0 0 / 10%);
+}
+
+.chat-box .outgoing {
+    display: flex;
+}
+
+.chat-box .outgoing .details {
+    margin-left: auto;
+    max-width: calc(100% - 250px);
+}
+
+.outgoing .details p {
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 18px 18px 0 18px;
+}
+
+.chat-box .incoming {
+    display: flex;
+    align-items: flex-end;
+}
+
+.chat-box .incoming .details {
+    margin-right: auto;
+    margin-left: 10px;
+    max-width: calc(100% - 250px);
+}
+
+.incoming .details p {
+    background: #fff;
+    color: #333;
+    border-radius: 18px 18px 18px 0;
+}
+
+.typing-area {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.typing-area input {
+    height: 45px;
+    width: calc(100% - 50px);
+    font-size: 16px;
+    padding: 0 13px;
+    border: 1px solid #e6e6e6;
+    outline: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.typing-area input:focus{
+    box-shadow:  inset 0 0px 2px 2px rgb(0 0 0 / 3%);
+}
+
+.typing-area button {
+    color: #fff;
+    width: 55px;
+    height: 45px;
+    border: none;
+    outline: none;
+    background: var(--main-color);
+    font-size: 20px;
+    opacity: 0.8;
+    border-radius: 0 5px 5px 0;
+    transition: all 0.3s ease;
+}
+
+.typing-area button.active {
+    opacity: 1;
+    cursor: pointer;
+}
+
+@media(max-width: 1200px) {
+    .chat-area {
+        padding: 0;
+    }
+    .chat-area header .back-icon {
+        right: 20px;
+    }
+    .chat-box .incoming .details,
+    .chat-box .outgoing .details {
+        max-width: calc(100% - 130px);
+    }
+}
 @media(max-width: 1000px) {
+    .chat-box .incoming .details,
+    .chat-box .outgoing .details {
+        max-width: calc(100% - 50px);
+    }
     .user-box {
         display: none;
     }
