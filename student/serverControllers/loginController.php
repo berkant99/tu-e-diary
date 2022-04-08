@@ -21,9 +21,6 @@ if (!empty($_POST['facultyNumber']) && !empty($_POST['password'])) {
             $result = $conn->query("SELECT * FROM st_login WHERE facultyNumber = '" . $facultyNumber  . "'")->fetch_assoc();
             $_SESSION['email'] = $result['email'];
             $_SESSION['verified'] = $result['email_verified_at'];
-            if (!empty($_SESSION['verified'])) {
-                $conn->query("UPDATE st_login SET status = 'Active' WHERE facultyNumber = '" .  $_SESSION['id'] . "'");
-            }
         }
         echo "success";
     } else {

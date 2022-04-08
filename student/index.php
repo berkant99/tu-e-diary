@@ -106,4 +106,5 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/layout/sideMenu.php';
 <script src="../assets/js/libs/chart.js"></script>
 <script src="../assets/js/libs/countUp.js"></script>
 <script src="../student/assets/js/index.js?v=<?php echo time(); ?>" type="text/javascript"></script>
+<script src="../student/jsControllers/lastActivity.js?v=<?php echo time(); ?>" type="text/javascript"></script>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/layout/footer.php'; ?>

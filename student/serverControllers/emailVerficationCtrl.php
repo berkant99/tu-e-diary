@@ -11,7 +11,7 @@ if (!empty($_POST['verification-code']) && !isset($_GET['send-code-again'])) {
     if ($query->num_rows == 1) {
         $checkCode = $query->fetch_assoc()['code'];
         if ($checkCode == $code) {
-            $conn->query("UPDATE st_login SET code = NULL, email_verified_at = NOW(), code_expire_in = NULL, status = 'Active' WHERE email= '" . $email . "'");
+            $conn->query("UPDATE st_login SET code = NULL, email_verified_at = NOW(), code_expire_in = NULL WHERE email= '" . $email . "'");
             $_SESSION['verified'] = TRUE;
             $_SESSION['verification-scs-msg'] = 'Успешно потвърдихте вашия имейл адрес!';
             echo "success";

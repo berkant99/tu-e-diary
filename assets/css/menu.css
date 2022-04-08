@@ -195,10 +195,21 @@ nav .unread-msg {
     padding: 4px 12px;
 }
 
+.dropdown-msg-menu .msg .text {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 4px 12px;
+    white-space: nowrap;
+}
+
 .dropdown-msg-menu .msg:hover {
-    transform: translateY(-2px);
-    transition: 0.2s;
-    background-color: #f8f8f8;
+    /* transform: translateY(-2px);
+    transition: 0.2s; */
+    /* background-color: #f8f8f8; */
 }
 
 @media(max-width: 620px) {

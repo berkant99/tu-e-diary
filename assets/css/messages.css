@@ -1,18 +1,20 @@
-.msg-cntr .box {
+.card-cntr .box {
     display: block;
     grid-gap: 0px;
     margin: auto;
     min-width: 750px;
 }
 
-.msg-cntr .box .card {
+.card-cntr .box .card {
     cursor: default;
+    min-height: calc(100vh - 110px);
+    max-height: calc(100vh - 110px);
 }
 
 .user-box {
     min-width: 300px;
     width: 400px;
-    height: 79vh;
+    height: calc(100vh - 110px);
     border-right: 2px solid #ccc;
     position: relative;
     transition: 0.5s;
@@ -26,21 +28,21 @@
     max-width: calc(100% - 400px);
     transition: 0.5s;
     padding: 15px;
-    height: 80vh;
+    height: calc(100vh - 110px);
 }
 
-.msg-box .vr-group{
+.card-cntr .vr-group {
     justify-content: center;
     height: 100%;
 }
 
-.msg-box .vr-group i{
+.msg-box .vr-group i {
     color: var(--main-color);
     font-size: 60px;
     text-shadow: 0 0 5px;
 }
 
-.msg-box .vr-group .text{
+.msg-box .vr-group .text {
     color: var(--main-color);
     font-size: 22px;
     white-space: nowrap;
@@ -48,7 +50,7 @@
     text-shadow: 0 0px 2px 2px rgb(0 0 0 / 3%);
 }
 
-.msg-cntr .hr-group {
+.card-cntr .hr-group {
     justify-content: left;
 }
 
@@ -112,8 +114,10 @@
 }
 
 .users-list {
-    max-height: 400px;
+    max-height: calc(100% - 75px);
     overflow-y: auto;
+    transition: all 0.3s;
+    display: none;
 }
 
 .users-list::-webkit-scrollbar {
@@ -177,6 +181,7 @@
 
 #usr-not-found-err {
     display: none;
+    justify-content: center;
 }
 
 .status-dot .status-text {
@@ -201,7 +206,7 @@
 .chat-area {
     padding: 0 50px;
     height: 100%;
-    /* width: 100%; */
+    width: 100%;
 }
 
 .chat-area header {
@@ -216,6 +221,7 @@
     position: absolute;
     right: 65px;
     cursor: pointer;
+    display: none;
 }
 
 .chat-area header img {
@@ -238,11 +244,12 @@
 .chat-box {
     position: relative;
     min-height: calc(100% - 130px);
-    max-height:  calc(100% - 130px);
+    max-height: calc(100% - 130px);
     overflow-y: auto;
-    padding: 10px 20px 20px 20px;
+    padding: 10px 20px 0px 20px;
     background: #f8f8f8;
     border-radius: 5px;
+    width: 100%;
     box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%), inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
 }
 
@@ -261,7 +268,7 @@
 }
 
 .chat-box .chat {
-    margin: 15px 0;
+    margin: 3px 0;
 }
 
 .chat-box .chat p {
@@ -271,6 +278,25 @@
     box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0rem 16px 16px -16px rgb(0 0 0 / 10%);
 }
 
+.chat-box .date {
+    margin: -10px 0 25px 0;
+    white-space: nowrap;
+    color: #67676a;
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+}
+
+.chat-box .time {
+    white-space: nowrap;
+    color: #67676a;
+    font-size: 10px;
+    text-align: center;
+    max-width: 50px;
+    position: relative;
+    padding: 5px 0;
+}
+
 .chat-box .outgoing {
     display: flex;
 }
@@ -278,6 +304,16 @@
 .chat-box .outgoing .details {
     margin-left: auto;
     max-width: calc(100% - 250px);
+}
+
+.ot {
+    left: calc(100% - 50px);
+    top: -62px;
+}
+
+.it {
+    right: 0px;
+    top: -62px;
 }
 
 .outgoing .details p {
@@ -293,7 +329,6 @@
 
 .chat-box .incoming .details {
     margin-right: auto;
-    margin-left: 10px;
     max-width: calc(100% - 250px);
 }
 
@@ -319,8 +354,8 @@
     border-radius: 5px 0 0 5px;
 }
 
-.typing-area input:focus{
-    box-shadow:  inset 0 0px 2px 2px rgb(0 0 0 / 3%);
+.typing-area input:focus {
+    box-shadow: inset 0 0px 2px 2px rgb(0 0 0 / 3%);
 }
 
 .typing-area button {
@@ -345,26 +380,32 @@
     .chat-area {
         padding: 0;
     }
-    .chat-area header .back-icon {
-        right: 20px;
-    }
     .chat-box .incoming .details,
     .chat-box .outgoing .details {
         max-width: calc(100% - 130px);
     }
 }
+
 @media(max-width: 1000px) {
     .chat-box .incoming .details,
     .chat-box .outgoing .details {
         max-width: calc(100% - 50px);
     }
+    .chat-area header .back-icon {
+        right: 20px;
+        display: block;
+    }
     .user-box {
+        border-right: none;
+        width: 100%;
+    }
+    .msg-box {
         display: none;
     }
-    .msg-cntr .hr-group {
+    .card-cntr .hr-group {
         justify-content: center;
     }
-    .msg-cntr .box {
+    .card-cntr .box {
         max-width: 450px;
         min-width: 300px;
     }
@@ -373,4 +414,13 @@
         width: 100%;
         max-width: 100%;
     }
+}
+
+.settings-title {
+    text-align: center;
+    color: var(--main-color);
+    padding: 15px;
+    font-size: 22px;
+    font-family: 'Mulish', sans-serif;
+    font-weight: bold;
 }

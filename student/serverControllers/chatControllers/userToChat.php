@@ -15,7 +15,7 @@ if (isset($_POST['user_id'])) {
             <img src="../assets/images/user-icon.jpg" alt="user-icon">
             <div class="details">
                 <span>' . $fullname . '</span>
-                <p>' . $row['status'] . '</p>
+                <p>' . $row['status'] . ' now</p>
             </div>
             <div class="back-icon"><i class="fa-solid fa-xmark"></i></div>
         </header>

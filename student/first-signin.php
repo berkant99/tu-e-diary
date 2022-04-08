@@ -8,7 +8,7 @@ if (!isset($_SESSION['id'])) {
     exit();
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php'; ?>
-<nav>
+<nav style="position: relative;">
     <div class="logo">
         <img src="/e-diary/assets/images/logo.png">
     </div>
@@ -18,6 +18,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php'; ?>
         </a>
     </div>
 </nav>
+<div class="center-group">
 <div class="container">
     <div class="wrapper">
         <div class="form-title">Промяна на парола</div>
@@ -70,6 +71,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php'; ?>
             </div>
         </form>
     </div>
+</div>
 </div>
 <script src="jsControllers/first-login.js?v=<?php echo time(); ?>" type="module"></script>
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/layout/footer.php'; ?>

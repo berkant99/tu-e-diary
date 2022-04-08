@@ -5,8 +5,8 @@
         </div>
     </a>
     <div class="right-menu">
-        <div class="unread-msg">
-            15
+        <div id="unread-msg-id">
+            <!-- Unread notifications count will show here -->
         </div>
         <a href="#">
             <i class="fa fa-bell-o" aria-hidden="true"></i>
@@ -28,52 +28,8 @@
         </label>
     </div>
 </nav>
-<div class="dropdown-msg-menu">
+<div class="dropdown-msg-menu" id="dropdown-msg-menu-id">
     <ul>
-        <div class="msg">
-            <div class="hr-group">
-                <li>Ново съобщение от Даяна Димитрова</li>
-                <div class="vr-group">
-                    <div class="date">22/03/22г.</div>
-                    <div class="time">11:05ч.</div>
-                </div>
-            </div>
-        </div>
-        <div class="msg">
-            <div class="hr-group">
-                <li>Ново съобщение от Наско Николов</li>
-                <div class="vr-group">
-                    <div class="date">22/03/22г.</div>
-                    <div class="time">11:05ч.</div>
-                </div>
-            </div>
-        </div>
-        <div class="msg">
-            <div class="hr-group">
-                <li>Ново оценка</li>
-                <div class="vr-group">
-                    <div class="date">22/03/22г.</div>
-                    <div class="time">11:05ч.</div>
-                </div>
-            </div>
-        </div>
-        <div class="msg">
-            <div class="hr-group">
-                <li>Ново оценка</li>
-                <div class="vr-group">
-                    <div class="date">22/03/22г.</div>
-                    <div class="time">11:05ч.</div>
-                </div>
-            </div>
-        </div>
-        <div class="msg">
-            <div class="hr-group">
-                <li>Ново оценка</li>
-                <div class="vr-group">
-                    <div class="date">22/03/22г.</div>
-                    <div class="time">11:05ч.</div>
-                </div>
-            </div>
-        </div>
+        <!-- Notifications will show here -->
     </ul>
 </div>

@@ -51,7 +51,7 @@ $(document).ready(function () {
         $('.main').toggleClass('blur-main');
         $('.user-info').toggleClass('hide');
         $('.fa-bell-o').toggleClass('hide');
-        $('.unread-msg').toggleClass('hide');
+        $('#unread-msg-id').toggleClass('hide');
         if ($('.dropdown-msg-menu').css('display') == 'block') {
             $('.dropdown-msg-menu').slideUp('fast');
         }

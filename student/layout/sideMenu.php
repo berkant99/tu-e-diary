@@ -52,7 +52,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="settings.php">
                     <span class="icon">
                         <i class="fa-solid fa-gear"></i>
                     </span>
