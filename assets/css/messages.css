@@ -159,6 +159,7 @@
 .users-list a img {
     height: 40px;
     width: 40px;
+    object-fit: cover;
     border-radius: 50%;
 }
 
@@ -227,6 +228,7 @@
 .chat-area header img {
     height: 50px;
     width: 50px;
+    object-fit: cover;
     border-radius: 50%;
     margin-right: 15px;
 }
@@ -276,6 +278,7 @@
     font-size: 14px;
     padding: 8px 16px;
     box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0rem 16px 16px -16px rgb(0 0 0 / 10%);
+    cursor: pointer;
 }
 
 .chat-box .date {
@@ -414,13 +417,4 @@
         width: 100%;
         max-width: 100%;
     }
-}
-
-.settings-title {
-    text-align: center;
-    color: var(--main-color);
-    padding: 15px;
-    font-size: 22px;
-    font-family: 'Mulish', sans-serif;
-    font-weight: bold;
 }

@@ -26,7 +26,7 @@ if (isset($_SESSION['email-reset'])) {
                     <i class="fa-solid fa-exclamation" aria-hidden="true"></i>
                 </div>
                 <div class="text">
-                    Ще изпратим ключ за възстановяване на паролата в посочения от вас имейл адрес.
+                    Ще изпратим ключ за възстановяване на паролата на посочения от вас имейл адрес.
                 </div>
             </div>
             <div class="alert alert-error" style="display: none;">

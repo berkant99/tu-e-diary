@@ -12,6 +12,7 @@ if (!empty($_POST['facultyNumber']) && !empty($_POST['password'])) {
         $fullname = $conn->query("SELECT firstname, lastname FROM students WHERE facultyNumber = '" . $facultyNumber  . "'")->fetch_assoc();
         $_SESSION['name'] = $fullname['firstname'] . " " . $fullname['lastname'];
         $_SESSION['id'] = $result['facultyNumber'];
+        $_SESSION['img'] = $result['img'];
         if ($result['email'] == NULL) {
             $_SESSION['firstLogin'] = FALSE;
         } else {

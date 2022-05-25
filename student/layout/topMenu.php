@@ -13,7 +13,7 @@
         </a>
         <div class="user-info">
             <div class="username"><?php echo $_SESSION['name']; ?></div>
-            <img src="/e-diary/assets/images/user-icon.jpg">
+            <img src="/e-diary/profile-pictures/<?php echo $_SESSION['img']; ?>">
         </div>
         <div class="logout">
             <a href="login.php?logout_id=<?php echo $_SESSION['id']; ?>">

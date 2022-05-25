@@ -14,12 +14,14 @@ if (isset($_POST['incoming_id'])) {
             $date = date("d F Y", strtotime($row['time']));
             if (array_key_exists($date, $data)) {
                 $data[$date][] = array(
+                    'msg_id' => $row['msg_id'],
                     'from'      => $row['from'],
                     'msg' => $row['msg'],
                     'time'    => explode(" ", $row['time'])[1],
                 );
             } else {
                 $data[$date][] = array(
+                    'msg_id' => $row['msg_id'],
                     'from'      => $row['from'],
                     'msg' => $row['msg'],
                     'time'    => explode(" ", $row['time'])[1],
@@ -32,7 +34,7 @@ if (isset($_POST['incoming_id'])) {
                 if ($msg['from'] == $outgoing_id) {
                     $output .= '<div class="chat outgoing">
                                 <div class="details">
-                                    <p>' . $msg['msg'] . '</p>
+                                    <p id="'.$msg['msg_id'].'">' . $msg['msg'] . '</p>
                                 </div>
                             </div>
                             <div class="time ot">' . $msg['time'] . '</div>';

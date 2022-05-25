@@ -126,7 +126,7 @@ setInterval(() => {
         getChat(incomingID, chatBox);
         setStatus(status, incomingID);
     }
-}, 250);
+}, 1000);
 
 function setStatus(status, id) {
     let xml = new XMLHttpRequest();
@@ -149,21 +149,21 @@ function setStatus(status, id) {
 }
 
 function getChat(id, chatBox) {
-    let xml = new XMLHttpRequest();
-    xml.open("POST", "/e-diary/student/serverControllers/chatControllers/getChat.php", true);
-    xml.onload = () => {
-        if (xml.readyState === XMLHttpRequest.DONE) {
-            if (xml.status === 200) {
-                let data = xml.response;
-                chatBox.innerHTML = data;
-                if (!chatBox.classList.contains("active-chat")) {
-                    scrollToBottom(chatBox);
+        let xml = new XMLHttpRequest();
+        xml.open("POST", "/e-diary/student/serverControllers/chatControllers/getChat.php", true);
+        xml.onload = () => {
+            if (xml.readyState === XMLHttpRequest.DONE) {
+                if (xml.status === 200) {
+                    let data = xml.response;
+                    chatBox.innerHTML = data;
+                    if (!chatBox.classList.contains("active-chat")) {
+                        scrollToBottom(chatBox);
+                    }
                 }
             }
         }
-    }
-    xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xml.send("incoming_id=" + id);
+        xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xml.send("incoming_id=" + id);
 }
 
 function insertChat(btn, form, chatBox, inputField, incomingID) {
@@ -216,4 +216,13 @@ $(document).ready(() => {
         $(".user-box .vr-group").css('display', 'none');
         $(".user-box .users-list").css('display', 'block');
     }, 800)
+
+    if (sessionStorage.getItem('id') != null) {
+        sendUserLinkId(sessionStorage.getItem('id'));
+        sessionStorage.removeItem('id');
+        if ($(window).width() <= 1000) {
+            $(".msg-box").css('display', 'block');
+            $(".user-box").css('display', 'none');
+        }
+    }
 })

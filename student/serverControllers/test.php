@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/controllers/dbConnection.php';
-$query = "SELECT n.to_user, n.is_read,
+$query = "SELECT n.notification_id, n.to_user, n.is_read,
 SUBSTRING_INDEX(n.time,' ', 1) AS date, SUBSTRING_INDEX(n.time,' ', -1) AS time, 
 CONCAT(s.firstname,' ',s.lastname) as fullname, nt.text 
 FROM notifications n 

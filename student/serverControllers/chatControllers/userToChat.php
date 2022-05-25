@@ -1,9 +1,10 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/controllers/dbConnection.php';
+session_start();
 if (isset($_POST['user_id'])) {
     $id = $_POST['user_id'];
     $output = '';
-    $query = "SELECT s.firstname, s.lastname, sl.status from students s
+    $query = "SELECT s.firstname, s.lastname, sl.img, sl.status from students s
     JOIN st_login sl ON sl.facultyNumber = s.facultyNumber WHERE s.facultyNumber='{$id}'";
     $result = $conn->query($query);
     if ($result->num_rows == 1) {
@@ -12,7 +13,7 @@ if (isset($_POST['user_id'])) {
         $output .= '
         <section class="chat-area">
         <header>
-            <img src="../assets/images/user-icon.jpg" alt="user-icon">
+            <img src="../profile-pictures/' . $row['img'] . '" alt="user-icon">
             <div class="details">
                 <span>' . $fullname . '</span>
                 <p>' . $row['status'] . ' now</p>
@@ -20,6 +21,9 @@ if (isset($_POST['user_id'])) {
             <div class="back-icon"><i class="fa-solid fa-xmark"></i></div>
         </header>
         <div class="chat-box">
+            <div class="vr-group" style="margin-top: 100px;">
+                <div class="loader"></div>
+            </div>
         </div>
         <form action="#" class="typing-area">
             <input type="text" class="incoming_id" name="incoming_id" value="' . $id . '" hidden>
@@ -30,4 +34,12 @@ if (isset($_POST['user_id'])) {
         ';
     }
     echo $output;
+
+    /* UPDATE NOTIFICATION FROM UNREAD IN TO READ */
+    $query = "SELECT * FROM notifications WHERE from_user = '{$id}' AND to_user = '{$_SESSION["id"]}' AND text_id = 2 AND is_read = 0";
+    $result = $conn->query($query);
+    if ($result->num_rows == 1) {
+        $updateID = $result->fetch_assoc()['notification_id'];
+        $conn->query("UPDATE notifications SET is_read = 1 WHERE notification_id = {$updateID}");
+    }
 }

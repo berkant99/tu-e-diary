@@ -11,19 +11,19 @@ AND (messages.from = '" . $outgoing_id . "' OR messages.to = '" . $outgoing_id .
     } else {
         $you = "";
     }
-    $getStatus = $conn->query("SELECT * FROM st_login WHERE facultyNumber = '" . $row['facultyNumber'] . "'")->fetch_assoc();
-    ($getStatus['status'] == "Offline") ? $offline = "offline" : $offline = "";
+    $getImgSts = $conn->query("SELECT st.img, st.status FROM st_login st WHERE facultyNumber = '" . $row['facultyNumber'] . "'")->fetch_assoc();
+    ($getImgSts['status'] == "Offline") ? $offline = "offline" : $offline = "";
     ($outgoing_id == $row['facultyNumber']) ? $hid_me = "hide" : $hid_me = "";
     $output .= '<a id=' . $row['facultyNumber'] . '>
     <div class="content">
-    <img src="/e-diary/assets/images/user-icon.jpg" alt="">
+    <img src="/e-diary/profile-pictures/'.$getImgSts['img'].'" alt="profile-pic">
         <div class="details">
             <span>' . $row['firstname'] . " " . $row['lastname'] . '</span>
             <p>' . $you . $msg . '</p>
         </div>
     </div>
     <div class="status-dot ' . $offline . '"><i class="fas fa-circle"></i>
-    <span class="status-text">' . $getStatus['status'] . '</span>
+    <span class="status-text">' . $getImgSts['status'] . '</span>
     </div>
 </a>';
 }
