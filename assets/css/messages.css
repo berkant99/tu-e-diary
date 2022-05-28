@@ -39,7 +39,6 @@
 .msg-box .vr-group i {
     color: var(--main-color);
     font-size: 60px;
-    text-shadow: 0 0 5px;
 }
 
 .msg-box .vr-group .text {

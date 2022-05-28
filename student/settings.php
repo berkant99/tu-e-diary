@@ -66,7 +66,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/layout/sideMenu.php';
                                     <span id="settingsEmailError"></span>
                                 </div>
                                 <div class="field">
-                                    <button type="submit" name="save-settings">Промени имейла</button>
+                                    <button type="submit" name="save-settings">Промяна на имейл</button>
                                 </div>
                             </form>
                         </div>

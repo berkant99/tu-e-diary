@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="grades.php">
                     <span class="icon">
                         <i class="fa-solid fa-book"></i>
                     </span>
@@ -32,17 +32,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <span class="icon">
-                        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-                    </span>
-                    <span class="title">
-                        Структура
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
+                <a href="teachers.php">
                     <span class="icon">
                         <i class="fa-solid fa-person-chalkboard"></i>
                     </span>

@@ -13,6 +13,7 @@ if (!isset($_SESSION['id'])) {
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/layout/topMenu.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/layout/sideMenu.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/serverControllers/gradesController.php';
 ?>
 <div class="main">
     <?php if (isset($_SESSION['verification-scs-msg'])) : ?>
@@ -31,7 +32,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/layout/sideMenu.php';
         <div class="card c-average">
             <div class="hr-group">
                 <div id="average" class="numbers">
-                    5.58
+                    <?php echo number_format($avrg, 2) ?>
                 </div>
                 <div class="iconBox">
                     <i class="fa-solid fa-chart-column"></i>
@@ -42,7 +43,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/layout/sideMenu.php';
         <div class="card c-success">
             <div class="hr-group">
                 <div id="s-exams" class="numbers">
-                    27
+                    <?php echo $success ?>
                 </div>
                 <div class="iconBox">
                     <i class="fa fa-smile-o" aria-hidden="true"></i>
@@ -53,7 +54,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/layout/sideMenu.php';
         <div class="card c-frown">
             <div class="hr-group">
                 <div id="f-exams" class="numbers">
-                    2
+                    <?php echo $fail ?>
                 </div>
                 <div class="iconBox">
                     <i class="fa fa-frown-o" aria-hidden="true"></i>
@@ -64,7 +65,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/layout/sideMenu.php';
         <div class="card c-meh">
             <div class="hr-group">
                 <div id="u-disciplines" class="numbers">
-                    6
+                    <?php echo $authentication ?>
                 </div>
                 <div class="iconBox">
                     <i class="fa fa-meh-o" aria-hidden="true"></i>
@@ -85,14 +86,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/layout/sideMenu.php';
             <div class="rankingBox">
                 <div class="ranking">
                     <div class="hr-group">
-                        <div class="number" id="stream">15</div>
+                        <div class="number" id="stream"><?php echo $groupRank ?></div>
                         <i class="fa-solid fa-users-line"></i>
                     </div>
                     <div class="text">Място в потока</div>
                 </div>
                 <div class="ranking">
                     <div class="hr-group">
-                        <div class="number" id="university">256</div>
+                        <div class="number" id="university"><?php echo $universityRank ?></div>
                         <i class="fa-solid fa-building-columns"></i>
                     </div>
                     <div class="text">Място в университета</div>
