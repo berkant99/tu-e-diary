@@ -1,3 +1,21 @@
+$('#slct-smstr').on('change', function () {
+    $.ajax({
+        method: "POST",
+        data: { smstrID: this.value },
+        url: "serverControllers/gradesController.php",
+        success: function (data) {    // success callback function
+            if (data != "no-grades") {
+                $('#filter-smstr').html(data);
+                $('#grades-table').css("display","inline-table");
+                $('#no-grades').css("display","none");
+            } else {
+                $('#grades-table').css("display","none");
+                $('#no-grades').css("display","flex");
+                $('#no-grades').html("Все още нямате въведени оценки");
+            }
+        }
+    });
+});
 
 let teacher = document.getElementById('grades-table').getElementsByTagName('a');
 for (var i = 0; i < teacher.length; i++) {

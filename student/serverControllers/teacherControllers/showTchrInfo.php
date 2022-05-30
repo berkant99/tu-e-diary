@@ -4,10 +4,11 @@ session_start();
 if (isset($_POST['user_id'])) {
     $id = $_POST['user_id'];
     $output = '';
-    $query = "SELECT tchr.teacher_id, tchr.email, tchr.img, tchr.cabinet, CONCAT(t.title, ' ', tchr.name, ' ', tchr.middlename, ' ', tchr.lastname) as teacher,
+    $query = "SELECT tchr.teacher_id, tchr.email, tp.img, tchr.cabinet, CONCAT(t.title, ' ', tchr.name, ' ', tchr.middlename, ' ', tchr.lastname) as teacher,
     d.department FROM teachers tchr
     JOIN departments d ON tchr.department_id = d.department_id
     JOIN titles t ON tchr.title_id = t.title_id
+    JOIN t_profile tp ON tchr.teacher_id = tp.teacher_id
     WHERE tchr.teacher_id = {$id}";
     $result = $conn->query($query);
     if ($result->num_rows == 1) {

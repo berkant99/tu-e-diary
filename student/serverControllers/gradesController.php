@@ -1,14 +1,18 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/controllers/dbConnection.php';
+if (!isset($_SESSION)) {
+    session_start();
+}
 $id = $_SESSION['id'];
 $query = "SELECT gr.student_id, gr.teacher_id, DATE(gr.exam_date) as date, gr.grade, gr.semester, d.discipline, CONCAT(t.title, ' ', tchr.name, ' ', tchr.lastname) as teacher FROM grades gr
 JOIN disciplines d ON gr.discipline_id = d.discipline_id
 JOIN teachers tchr ON gr.teacher_id = tchr.teacher_id
 JOIN titles t ON tchr.title_id = t.title_id
-WHERE gr.student_id = '{$id}'";
+WHERE gr.student_id = '{$id}'
+ORDER BY gr.semester ASC";
 $result = $conn->query($query);
 
-$query = "SELECT AVG(grade) as average FROM grades WHERE student_id = '{$id}' AND grade > 2";
+$query = "SELECT AVG(grade) as average FROM grades WHERE student_id = '{$id}' AND grade >= 2";
 $avrg = $conn->query($query)->fetch_assoc()['average'];
 
 $query = "SELECT COUNT(grade) as success FROM grades WHERE student_id = '{$id}' AND (grade > 2 OR grade = 1)";
@@ -93,4 +97,46 @@ function getStatus($grade)
             break;
     endswitch;
     return $status;
+}
+
+if (isset($_POST['smstrID'])) {
+    $smstr = $_POST['smstrID'];
+    $condition = "";
+    $avrgSmstr = "";
+    if ($smstr != 0) {
+        $condition = " AND gr.semester = {$smstr}";
+        $avrgSmstr = "Общ успех от " . $smstr . " семестър:";
+        $query = "SELECT AVG(grade) as average FROM grades WHERE student_id = '{$id}' AND (grade >= 2 AND semester={$smstr})";
+        $avrg = $conn->query($query)->fetch_assoc()['average'];
+    } else {
+        $condition = " ORDER BY gr.semester";
+        $avrgSmstr = "Общ успех до момента:";
+        $query = "SELECT AVG(grade) as average FROM grades WHERE student_id = '{$id}' AND grade >= 2";
+        $avrg = $conn->query($query)->fetch_assoc()['average'];
+    }
+    $query = "SELECT gr.student_id, gr.teacher_id, DATE(gr.exam_date) as date, gr.grade, gr.semester, d.discipline, CONCAT(t.title, ' ', tchr.name, ' ', tchr.lastname) as teacher FROM grades gr
+JOIN disciplines d ON gr.discipline_id = d.discipline_id
+JOIN teachers tchr ON gr.teacher_id = tchr.teacher_id
+JOIN titles t ON tchr.title_id = t.title_id
+WHERE gr.student_id = {$id}" . $condition;
+    $result = $conn->query($query);
+    $output = "";
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $output .= '<tr>
+    <td>' . $row['discipline'] . '</td>
+    <td><div class="status ' . getStatus($row['grade']) . '">' . getGrade($row['grade']) . '</div></td>
+    <td>' . date("d.m.Y", strtotime($row['date'])) . '</td>
+    <td>' . $row['semester'] . '</td>
+    <td><a id="' . $row['teacher_id'] . '">' . $row['teacher'] . '</a></td>
+    </tr>';
+        }
+        $output .= "<tr>
+    <td>" . $avrgSmstr . "</td>
+    <td>" . number_format($avrg, 2) . "</td>
+    </tr>";
+    } else {
+        $output .= "no-grades";
+    }
+    echo $output;
 }

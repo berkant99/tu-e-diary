@@ -96,6 +96,9 @@ imgFile.onchange = (e) => {
                     errorStyle.fadeIn('fast');
                     errorText.html(data);
                 }
+                else if (data === "success") {
+                    window.location.href = "/e-diary/student/settings.php";
+                }
             }
         }
     }

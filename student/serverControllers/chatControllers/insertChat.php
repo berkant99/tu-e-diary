@@ -7,7 +7,7 @@ $message = $_POST['message'];
 if (!empty($message)) {
     $conn->query("INSERT INTO messages (`to`, `from`, `msg`, `time`)
     VALUES ({$incoming_id}, {$outgoing_id}, '{$message}', NOW())");
-    $getLastActivity = $conn->query("SELECT TIMESTAMPDIFF(SECOND, last_activity, NOW()) AS LAST_ACTIVITY FROM st_login WHERE facultyNumber = '{$incoming_id}'");
+    $getLastActivity = $conn->query("SELECT TIMESTAMPDIFF(SECOND, last_activity, NOW()) AS LAST_ACTIVITY FROM t_profile WHERE teacher_id = '{$incoming_id}'");
     $diff = $getLastActivity->fetch_assoc()['LAST_ACTIVITY'];
     if ($diff > 5) {
         $query = "SELECT * FROM notifications WHERE from_user = '{$outgoing_id}' AND to_user = '{$incoming_id}' AND text_id = 2";

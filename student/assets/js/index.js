@@ -42,7 +42,6 @@ $(document).ready(function () {
             var obj = JSON.parse(data);
             for (var i in obj) {
                 grades.push(obj[i].average);
-                console.log(obj[i].average);
             }
 
             var chartData = {

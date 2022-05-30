@@ -21,6 +21,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/serverControllers/gra
             <div class="grades-card">
                 <legend>Оценки</legend>
                 <?php if ($result->num_rows > 0) : ?>
+                    <div class="hr-group" style="justify-content: left;">
+                        <div class="slct-lbl">Семестър:</div>
+                        <select id="slct-smstr">
+                            <option value="0">Всички</option>
+                            <?php
+                            for ($i = 1; $i <= 10; $i++)
+                                echo "<option value=" . $i . ">" . $i . "</option>";
+                            ?>
+                        </select>
+                    </div>
                     <table id="grades-table">
                         <thead>
                             <tr>
@@ -31,12 +41,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/serverControllers/gra
                                 <td>Преподавател</td>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="filter-smstr">
                             <?php while ($row = $result->fetch_assoc()) {
                                 echo '
                         <tr>
                             <td>' . $row['discipline'] . '</td>
-                            <td><span class="status ' . getStatus($row['grade']) . '">' . getGrade($row['grade']) . '</span></td>
+                            <td><div class="status ' . getStatus($row['grade']) . '">' . getGrade($row['grade']) . '</div></td>
                             <td>' . date("d.m.Y", strtotime($row['date'])) . '</td>
                             <td>' . $row['semester'] . '</td>
                             <td><a id="' . $row['teacher_id'] . '">' . $row['teacher'] . '</a></td>
@@ -47,19 +57,18 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/serverControllers/gra
                                 <td>Общ успех до момента</td>
                                 <td><?php echo number_format($avrg, 2) ?></td>
                             </tr>
-
                         </tbody>
                     </table>
+                    <script src="../student/assets/js/grades.js?v=<?php echo time(); ?>" type="module"></script>
                 <?php else : ?>
                     <div class="object-center no-grades">
                         Все още нямате въведени оценки
                     </div>
                 <?php endif; ?>
+                <div id="no-grades" class="object-center no-grades" style="margin-top: 25px;"></div>
             </div>
         </div>
     </div>
 </div>
-<script src="../student/assets/js/grades.js?v=<?php echo time(); ?>" type="module"></script>
 <script src="../student/jsControllers/lastActivity.js?v=<?php echo time(); ?>" type="text/javascript"></script>
-<!-- <script src="assets/js/chat.js?v=<?php echo time(); ?>" type="text/javascript"></script> -->
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/layout/footer.php'; ?>

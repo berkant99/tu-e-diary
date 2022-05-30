@@ -1,6 +1,6 @@
 <?php
 while ($row = $query->fetch_assoc()) {
-    $sql2 = "SELECT * FROM messages WHERE (messages.to = '" . $row['facultyNumber'] . "' OR messages.from = '" . $row['facultyNumber'] . "')
+    $sql2 = "SELECT * FROM messages WHERE (messages.to = '" . $row['teacher_id'] . "' OR messages.from = '" . $row['teacher_id'] . "')
 AND (messages.from = '" . $outgoing_id . "' OR messages.to = '" . $outgoing_id . "') ORDER BY msg_id DESC LIMIT 1";
     $query2 = $conn->query($sql2);
     $row2 = ($query2)->fetch_assoc();
@@ -11,19 +11,19 @@ AND (messages.from = '" . $outgoing_id . "' OR messages.to = '" . $outgoing_id .
     } else {
         $you = "";
     }
-    $getImgSts = $conn->query("SELECT st.img, st.status FROM st_login st WHERE facultyNumber = '" . $row['facultyNumber'] . "'")->fetch_assoc();
+    $getImgSts = $conn->query("SELECT tp.img, tp.status FROM t_profile tp WHERE teacher_id = '" . $row['teacher_id'] . "'")->fetch_assoc();
     ($getImgSts['status'] == "Offline") ? $offline = "offline" : $offline = "";
-    ($outgoing_id == $row['facultyNumber']) ? $hid_me = "hide" : $hid_me = "";
-    $output .= '<a id=' . $row['facultyNumber'] . '>
+    ($outgoing_id == $row['teacher_id']) ? $hid_me = "hide" : $hid_me = "";
+    $output .= '<a id=' . $row['teacher_id'] . '>
     <div class="content">
-    <img src="/e-diary/profile-pictures/'.$getImgSts['img'].'" alt="profile-pic">
+    <img src="/e-diary/profile-pictures/' . $row['img'] . '" alt="profile-pic">
         <div class="details">
-            <span>' . $row['firstname'] . " " . $row['lastname'] . '</span>
+            <span>' . $row['teacher'] . '</span>
             <p>' . $you . $msg . '</p>
         </div>
     </div>
     <div class="status-dot ' . $offline . '"><i class="fas fa-circle"></i>
     <span class="status-text">' . $getImgSts['status'] . '</span>
     </div>
-</a>';
+    </a>';
 }

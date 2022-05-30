@@ -4,12 +4,14 @@ session_start();
 if (isset($_POST['user_id'])) {
     $id = $_POST['user_id'];
     $output = '';
-    $query = "SELECT s.firstname, s.lastname, sl.img, sl.status from students s
-    JOIN st_login sl ON sl.facultyNumber = s.facultyNumber WHERE s.facultyNumber='{$id}'";
+    $query = "SELECT tp.img, tp.status, CONCAT(t.title, ' ', tchr.name, ' ', tchr.lastname) as teacher FROM teachers tchr
+    JOIN titles t ON tchr.title_id = t.title_id
+    JOIN t_profile tp ON tchr.teacher_id = tp.teacher_id
+    WHERE tchr.teacher_id='{$id}'";
     $result = $conn->query($query);
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
-        $fullname = $row['firstname'] . " " . $row['lastname'];
+        $fullname = $row['teacher'];
         $output .= '
         <section class="chat-area">
         <header>
@@ -32,6 +34,9 @@ if (isset($_POST['user_id'])) {
         </form>
         </section>
         ';
+    }
+    else{
+        $output = ":(";
     }
     echo $output;
 

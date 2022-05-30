@@ -21,7 +21,7 @@
     display: block;
     width: 100%;
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     line-height: 40px;
     color: var(--main-color);
     border: 0;
@@ -58,12 +58,12 @@ table thead td {
     background-color: #f8f8f8;
 }
 
-.grades-card a:hover {
+#grades-table a:hover {
     color: var(--main-color);
     cursor: pointer;
 }
 
-.grades-card table tr td a:after {
+#grades-table a:after {
     display: block;
     content: '';
     border-bottom: solid 1px var(--main-color);
@@ -71,7 +71,7 @@ table thead td {
     transition: transform 250ms ease-in-out;
 }
 
-.grades-card table tr td a:hover:after {
+#grades-table a:hover:after {
     transform: scaleX(1);
 }
 
@@ -102,14 +102,6 @@ table thead td {
     cursor: default;
 }
 
-#send-tchr-msg{
-    background-image: none;
-    width: 60%;
-    margin: 20px;
-    font-size: smaller;
-    font-weight: 500;
-}
-
 .no-grades {
     font-weight: 500;
     color: var(--main-color);
@@ -126,6 +118,7 @@ table thead td {
     font-weight: 300;
     letter-spacing: 1px;
     white-space: nowrap;
+    width: 98px;
 }
 
 .excellent {
@@ -148,63 +141,25 @@ table thead td {
     background: #1795ce;
 }
 
-a .department {
-    font-size: 13px;
-    color: #67676a;
-    padding-left: 10px;
-    position: relative;
-    display: inline-block;
-}
-
-a #tchr-img {
-    border-radius: 0%;
-}
-
-#tchr-info legend {
-    margin-bottom: 0;
-}
-
-#tchr-info dt {
-    width: 70px;
-}
-
-#tchr-info dd {
-    margin-left: 80px;
-}
-
-#tchr-info img {
-    box-shadow: 0 0.1rem 0.5rem 0 rgba(58, 59, 69, 0.30)!important;
-    margin: 25px;
-    width: 180px;
-    height: 180px;
-    border-radius: 5px;
-}
-
-#tchr-info .back-icon {
-    display: none;
-    margin-left: 20px;
-    cursor: pointer;
-    font-size: 22px;
-}
-
-#tchr-info .hr-group {
-    justify-content: space-between;
+.hr-group .slct-lbl {
     color: var(--main-color);
-    border-bottom: 1px solid #e5e5e5;
     font-weight: 600;
-    font-size: large;
+    margin-right: 15px;
+    padding-left: 5px;
 }
 
-#tchr-info i {
-    font-size: larger;
+.hr-group select {
+    width: 88px;
+    border: 2px var(--main-color) solid;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    color: rgb(65, 65, 65);
 }
 
 @media (max-width: 1000px) {
     .grades .box {
         max-width: none;
         min-width: 300px;
-    }
-    #tchr-info .back-icon {
-        display: block;
     }
 }
