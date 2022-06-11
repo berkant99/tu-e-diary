@@ -9,24 +9,43 @@
 
 #btn-group button {
     background-color: #fff;
-    border: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     border-radius: 0px;
     cursor: pointer;
 }
 
+.active-stgs-btn {
+    border-bottom: 2px solid var(--main-color);
+}
+
 #btn-group button:hover {
-    transform: scale(0.99);
-    transition: all 0.2s;
+    transition: all 0.1s ease-in-out;
 }
 
 #settings-id,
-#info-id {
+#info-id,
+#search-box,
+#add-box,
+#edit-box {
     position: relative;
     transition: all 0.3s;
     width: 100%;
     height: calc(100vh - 180px);
     overflow-x: hidden;
     overflow-y: auto;
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.admin #search-box,
+.admin #add-box,
+.admin #edit-box {
+    height: calc(100vh - 157px);
+    padding: 10px 20px;
 }
 
 #info-id {
@@ -34,10 +53,7 @@
     padding: 10px 20px;
 }
 
-#settings-id::-webkit-scrollbar,
-#info-id::-webkit-scrollbar {
-    width: 0px;
-}
+
 
 #info-id {
     display: none;

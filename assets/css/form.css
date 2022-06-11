@@ -204,6 +204,71 @@ hr {
     border: none;
 }
 
+form .field i.fa-chevron-left {
+    color: #ccc;
+    transition: all .3s ease-in-out;
+    visibility: visible;
+    position: absolute;
+    font-size: 15px;
+    top: 15px;
+    right: 15px;
+    transform: rotate(-90deg);
+}
+
+form .focused i.fa-chevron-left {
+    color: var(--main-color);
+}
+
+form .error i.fa-chevron-left {
+    color: #e74c3c;
+}
+
+form .select-dropdown {
+    z-index: 1000;
+    display: none;
+}
+
+form .select-dropdown ul {
+    display: block;
+    position: relative;
+    background-color: #fff;
+    max-height: 100px;
+    z-index: 1000;
+    box-shadow: 0 1.65rem 1.5rem 0 rgba(58, 59, 69, .15)!important;
+    border: 1px solid #ccc;
+    overflow: auto;
+    padding: 0;
+}
+
+#edit-student-form .select-dropdown ul,
+#edit-teacher-form .select-dropdown ul {
+    margin-top: 0px;
+}
+
+form .select-dropdown ul li {
+    list-style: none;
+    position: relative;
+    background-color: #fff;
+    transition: all 0.1s ease;
+    z-index: 1000;
+    color: #999;
+    cursor: pointer;
+    padding: 5px 15px;
+    font-size: 12px
+}
+
+form .select-dropdown ul li:hover {
+    background-color: #f7f7f7;
+}
+
+#add-teacher-form .field input,
+#add-student-form .field input,
+#edit-teacher-form .field input,
+#edit-student-form .field input {
+    border-radius: 0px;
+    padding: 0 15px;
+}
+
 @media(max-width: 410px) {
     .alert .text {
         font-size: 12px;

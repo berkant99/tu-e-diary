@@ -45,13 +45,20 @@ function isEmail(email) {
 }
 
 export function checkEmail(emailId, errorId) {
-    if (!isEmail($('#' + emailId).val())) {
-        if ($('#' + emailId).val() != '') {
-            changeSpanErrorText(emailId, errorId, 'Въведете валиден имейл адрес!');
+    if ($('#' + inputId).val() != '') {
+        if (!isEmail($('#' + inputId).val())) {
+            changeSpanErrorText(inputId, errorId, 'Въведете валиден имейл адрес!');
+            return false;
         }
-        return false;
+        else {
+            return true;
+        }
     }
     else {
-        return true;
+        changeSpanErrorText(inputId, errorId, 'Моля попълнете това поле!');
+        return false;
     }
 }
+
+
+

@@ -21,6 +21,24 @@
     padding: 15px;
 }
 
+.admin .user-box,
+.admin .msg-box {
+    height: calc(100vh - 177px);
+    padding: 5px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+
+.admin .user-box::-webkit-scrollbar,
+.admin .msg-box::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
 .msg-box {
     position: relative;
     min-width: 400px;
@@ -402,22 +420,26 @@ a #tchr-img {
     margin-left: 80px;
 }
 
-#tchr-info img {
+#tchr-info img,
+#st-info img {
     box-shadow: 0 0.1rem 0.5rem 0 rgba(58, 59, 69, 0.30)!important;
     margin: 25px;
     width: 180px;
     height: 180px;
     border-radius: 5px;
+    object-fit: cover;
 }
 
-#tchr-info .back-icon {
+#tchr-info .back-icon,
+#st-info .back-icon {
     display: none;
     margin-left: 20px;
     cursor: pointer;
     font-size: 22px;
 }
 
-#tchr-info .hr-group {
+#tchr-info .hr-group,
+#st-info .hr-group {
     justify-content: space-between;
     color: var(--main-color);
     border-bottom: 1px solid #e5e5e5;
@@ -429,7 +451,10 @@ a #tchr-img {
     font-size: larger;
 }
 
-#send-tchr-msg{
+#send-tchr-msg,
+#edit-st-info,
+#delete-st-info,
+#delete-tchr-info {
     background-image: none;
     width: 60%;
     margin: 20px;
@@ -475,7 +500,8 @@ a #tchr-img {
         width: 100%;
         max-width: 100%;
     }
-    #tchr-info .back-icon {
+    #tchr-info .back-icon,
+    #st-info .back-icon {
         display: block;
     }
 }
