@@ -39,7 +39,7 @@ $(document).ready(() => {
             url: "serverControllers/changeSettings.php",
             success: function (data) {    // success callback function
                 if (data === "success") {
-                    window.location.href = "/e-diary/student/settings.php";
+                    window.location.href = "/e-diary/student/settings";
                 }
             }
         });
@@ -97,7 +97,7 @@ imgFile.onchange = (e) => {
                     errorText.html(data);
                 }
                 else if (data === "success") {
-                    window.location.href = "/e-diary/student/settings.php";
+                    window.location.href = "/e-diary/student/settings";
                 }
             }
         }
@@ -115,7 +115,7 @@ btn.onclick = () => {
                 if (xhr.status === 200) {
                     let data = xhr.response;
                     if (data === "success") {
-                        window.location.href = "/e-diary/student/index.php";
+                        window.location.href = "/e-diary/student/home";
                     }
                     else if (data != '') {
                         errorStyle.fadeIn('fast');

@@ -77,7 +77,7 @@ function sendUserLinkId(linkId) {
                     }
                     sendMsgBtn.onclick = () => {
                         sessionStorage.setItem('id', linkId);
-                        location.href = "messages.php";
+                        location.href = "messages";
                     }
                 }
                 if (data == 0) {

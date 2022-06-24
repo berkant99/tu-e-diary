@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION['id'])) {
-    header('location: login.php');
+    header('location: login');
     exit();
 } else if ($_SESSION['firstLogin'] == TRUE) {
-    header('location: email-verification.php');
+    header('location: email-verification');
     exit();
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php'; ?>
@@ -13,7 +13,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php'; ?>
         <img src="/e-diary/assets/images/logo.png">
     </div>
     <div class="logout">
-        <a href="login.php?logout_id=<?php echo $_SESSION['id']; ?>">
+        <a href="login?logout_id=<?php echo $_SESSION['id']; ?>">
             <div><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
         </a>
     </div>

@@ -12,11 +12,14 @@
     <link rel="stylesheet" href="/e-diary/assets/css/messages.css?v=<?php echo time(); ?>" type="text/css">
     <link rel="stylesheet" href="/e-diary/assets/css/settings.css?v=<?php echo time(); ?>" type="text/css">
     <link rel="stylesheet" href="/e-diary/assets/css/grades.css?v=<?php echo time(); ?>" type="text/css">
+    <link rel="stylesheet" href="/e-diary/assets/css/sweetalert.css?v=<?php echo time(); ?>" type="text/css">
     <!-- Font Awesome 6.1.0v -->
     <script src="https://kit.fontawesome.com/ee5387dcbd.js" crossorigin="anonymous"></script>
     <!-- JQuery 3.6.0v -->
     <script src="/e-diary/assets/js/libs/jquery-3.6.0.js" type="text/javascript"></script>
     <script src="/e-diary/assets/js/jsFunctions.js?v=<?php echo time(); ?>" type="module"></script>
+    <!-- JS Alerts -->
+    <script src="/e-diary/assets/js/libs/sweetalert.js" type="text/javascript"></script>
     <title>Електронен дневник | ТУ-ВАРНА</title>
 </head>
 

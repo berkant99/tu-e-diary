@@ -2,7 +2,7 @@
     <div>
         <ul>
             <li>
-                <a href="index.php">
+                <a href="home">
                     <span class="icon">
                         <i class="fa-solid fa-house"></i>
                     </span>
@@ -12,7 +12,7 @@
                 </a>
             </li>
             <li>
-                <a href="messages.php">
+                <a href="messages">
                     <span class="icon">
                         <i class="fa-solid fa-comments" aria-hidden="true"></i>
                     </span>
@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li>
-                <a href="grades.php">
+                <a href="grades">
                     <span class="icon">
                         <i class="fa-solid fa-book"></i>
                     </span>
@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li>
-                <a href="teachers.php">
+                <a href="teachers">
                     <span class="icon">
                         <i class="fa-solid fa-person-chalkboard"></i>
                     </span>
@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li>
-                <a href="settings.php">
+                <a href="settings">
                     <span class="icon">
                         <i class="fa-solid fa-gear"></i>
                     </span>
@@ -52,7 +52,7 @@
                 </a>
             </li>
             <li>
-                <a href="login.php?logout_id=<?php echo $_SESSION['id']; ?>">
+                <a href="login?logout_id=<?php echo $_SESSION['id']; ?>">
                     <span class="icon">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     </span>

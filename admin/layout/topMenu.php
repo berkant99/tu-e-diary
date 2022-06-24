@@ -1,5 +1,5 @@
 <nav>
-    <a href="/e-diary/admin/students.php">
+    <a href="/e-diary/admin/home">
         <div class="logo">
             <img src="/e-diary/assets/images/logo.png">
         </div>

@@ -1,13 +1,13 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/serverControllers/emailVerficationCtrl.php';
 if (!isset($_SESSION['id'])) {
-    header('location: login.php');
+    header('location: login');
     exit();
 } else if (!isset($_SESSION['email'])) {
-    header('location: first-signin.php');
+    header('location: first-signin');
     exit();
 } else if (isset($_SESSION['verified'])) {
-    header('location: index.php');
+    header('location: home');
     exit();
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php'; ?>
@@ -16,7 +16,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php'; ?>
         <img src="/e-diary/assets/images/logo.png">
     </div>
     <div class="logout">
-        <a href="login.php?logout_id=<?php echo $_SESSION['id']; ?>">
+        <a href="login?logout_id=<?php echo $_SESSION['id']; ?>">
             <div><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
         </a>
     </div>
@@ -52,7 +52,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php'; ?>
                 <div class="field">
                     <button type="submit" name="email-verification-btn">Потвърди</button>
                 </div>
-                <div class="link-text"><a href="email-verification.php?send-code-again=<?php echo $_SESSION['email'] ?>">Изпращане на кода отново.</a></div>
+                <div class="link-text"><a href="email-verification?send-code-again=<?php echo $_SESSION['email'] ?>">Изпращане на кода отново.</a></div>
             </form>
         </div>
     </div>

@@ -2,7 +2,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/admin/serverControllers/logoutController.php';
 session_start();
 if (isset($_SESSION['id'])) {
-    header('location: students.php');
+    header('location: home');
     exit();
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php';

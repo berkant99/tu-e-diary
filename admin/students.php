@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['id'])) {
-    header('location: login.php');
+    header('location: login');
     exit();
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php';
@@ -107,13 +107,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/admin/serverControllers/stude
                                     </div>
                                     <div class="left-box" style="min-width: 300px;">
                                         <div class="field">
-                                            <input type="text" name="st-specialty" id="st-specialty" style="cursor: pointer; padding-right: 30px;" readonly>
+                                            <input type="text" name="st-specialty" id="st-specialty" style="cursor: pointer; padding-right: 30px;">
                                             <input type="hidden" name="st-specialty-id" id="st-specialty-id">
                                             <i class="fa fa-chevron-left"></i>
                                             <label>Специалност</label>
                                             <span></span>
                                             <div class="select-dropdown" id="select-specialty-dropdown">
                                                 <ul id="select-specialty">
+                                                    <li class="result" style="color: #99190b; display: none; cursor: not-allowed;" value="" id="result">Няма съвпадения!</li>
                                                     <?php
                                                     while ($row = $specialties->fetch_assoc()) {
                                                         echo "<li id='" . $row['specialty_id'] . "' value='" . $row["spec"] . "'>" . $row["specialty"] . "</li>";

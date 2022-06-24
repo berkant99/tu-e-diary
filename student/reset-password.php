@@ -1,16 +1,16 @@
 <?php
 session_start();
 if (isset($_SESSION['id'])) {
-    header('location: index.php');
+    header('location: home');
     exit();
 }
 if (!isset($_SESSION['email-reset'])) {
-    header('location: forgotten-pass.php');
+    header('location: forgotten-pass');
     exit();
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php'; ?>
 <nav>
-    <a href="/e-diary/student/login.php">
+    <a href="/e-diary/student/login">
         <div class="logo">
             <img src="/e-diary/assets/images/logo.png">
         </div>

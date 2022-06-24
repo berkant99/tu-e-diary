@@ -162,20 +162,6 @@ nav .unread-msg {
 }
 
 
-/* Hide scroll bar, but while still being able to scroll */
-
-.dropdown-msg-menu {
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-.dropdown-msg-menu::-webkit-scrollbar {
-    display: none;
-    /* Safari and Chrome */
-}
-
 .dropdown-msg-menu ul {
     list-style: none;
 }

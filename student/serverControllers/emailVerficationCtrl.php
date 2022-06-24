@@ -38,13 +38,13 @@ if (isset($_GET['send-code-again']) && !isset($_SESSION['verified'])) {
             $_SESSION['code-to-send'] = $code['code'];
             $_SESSION['email-subject'] = 'Verify your email address';
             $_SESSION['email-title'] = 'Your email verification code is:';
-            header('location: email-verification.php');
+            header('location: email-verification');
             exit();
         } else {
             $errorText = $errors['error'];
         }
     } else {
-        header('location: email-verification.php');
+        header('location: email-verification');
         exit();
     }
 }

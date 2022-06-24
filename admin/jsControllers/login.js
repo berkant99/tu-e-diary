@@ -19,7 +19,7 @@ loginBtn.onclick = () => {
                 if (xhr.status === 200) {
                     let data = xhr.response;
                     if (data === "success") {
-                        location.href = "students.php";
+                        location.href = "home";
                         loginBtn.disabled = true;
                     } else if (data != '') {
                         infoStyle.css('display', 'none');

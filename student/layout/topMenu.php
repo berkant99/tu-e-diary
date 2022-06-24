@@ -1,5 +1,5 @@
 <nav>
-    <a href="/e-diary/student/index.php">
+    <a href="/e-diary/student/home">
         <div class="logo">
             <img src="/e-diary/assets/images/logo.png">
         </div>
@@ -16,7 +16,7 @@
             <img src="/e-diary/profile-pictures/<?php echo $_SESSION['img']; ?>">
         </div>
         <div class="logout">
-            <a href="login.php?logout_id=<?php echo $_SESSION['id']; ?>">
+            <a href="login?logout_id=<?php echo $_SESSION['id']; ?>">
                 <i class="fa-solid fa-arrow-right-from-bracket" id="idx-lgt"></i>
             </a>
         </div>

@@ -4,7 +4,6 @@ const count = $('#unread-msg-id'),
 $(document).ready(() => {
     getNotificationsList();
     getNotificationsCount();
-    // console.log(count.text());
 })
 
 setInterval(() => {
@@ -25,8 +24,11 @@ function getNotificationId() {
             setToRead(notificationId);
             sessionStorage.setItem('id', from);
             $('.dropdown-msg-menu').slideUp('slow');
-            if (msgTitleId == 2) {
-                location.href = "messages.php";
+            if (msgTitleId == 1) {
+                location.href = "grades";
+            }
+            else if (msgTitleId == 2) {
+                location.href = "messages";
             }
         })
     }

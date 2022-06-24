@@ -5,15 +5,6 @@
     height: calc(100vh - 110px);
     overflow: auto;
     padding: 25px;
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-.grades-card::-webkit-scrollbar {
-    display: none;
-    /* Safari and Chrome */
 }
 
 .grades-card legend {
@@ -55,6 +46,10 @@ table thead td {
 .grades-card table tbody tr:hover {
     transform: translateY(-1px);
     transition: 0.2s;
+    background-color: #f8f8f8;
+}
+
+#group-grades tr:hover {
     background-color: #f8f8f8;
 }
 

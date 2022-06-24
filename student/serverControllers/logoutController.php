@@ -5,7 +5,7 @@ if (isset($_GET['logout_id'])) {
     session_start();
     session_destroy();
     session_commit();
-    header('location: login.php');
+    header('location: login');
     //terminate the current script 
     exit();
 }

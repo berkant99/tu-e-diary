@@ -2,7 +2,7 @@
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php';
 if (isset($_SESSION['id'])) {
-    header('location: index.php');
+    header('location: home');
     exit();
 }
 if (isset($_SESSION['email-reset'])) {
@@ -10,7 +10,7 @@ if (isset($_SESSION['email-reset'])) {
 }
 ?>
 <nav>
-    <a href="/e-diary/student/login.php">
+    <a href="/e-diary/student/login">
         <div class="logo">
             <img src="/e-diary/assets/images/logo.png">
         </div>

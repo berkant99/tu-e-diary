@@ -44,7 +44,7 @@ function isEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
 
-export function checkEmail(emailId, errorId) {
+export function checkEmail(inputId, errorId) {
     if ($('#' + inputId).val() != '') {
         if (!isEmail($('#' + inputId).val())) {
             changeSpanErrorText(inputId, errorId, 'Въведете валиден имейл адрес!');
@@ -57,6 +57,29 @@ export function checkEmail(emailId, errorId) {
     else {
         changeSpanErrorText(inputId, errorId, 'Моля попълнете това поле!');
         return false;
+    }
+}
+
+export function filterDropdownList(inputId, ul) {
+    var filter, li, search, i, txtValue, br;
+    filter = inputId.value.toUpperCase();
+    li = ul.getElementsByTagName("li");
+    br = li.length;
+    for (i = 0; i < li.length; i++) {
+        search = li[i];
+        txtValue = search.textContent || search.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "block";
+        } else {
+            li[i].style.display = "none";
+            br--;
+        }
+    }
+    if (br == 0) {
+        document.getElementById('result').style.display = "block";
+    }
+    else {
+        document.getElementById('result').style.display = "none";
     }
 }
 

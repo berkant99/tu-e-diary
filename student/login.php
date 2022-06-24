@@ -3,11 +3,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/student/serverControllers/log
 session_start();
 if (isset($_SESSION['id'])) {
     if ($_SESSION['firstLogin'] == FALSE) {
-        header('location: first-signin.php');
+        header('location: first-signin');
     } else if (!isset($_SESSION['verified'])) {
-        header('location: email-verification.php');
+        header('location: email-verification');
     } else {
-        header('location: index.php');
+        header('location: home');
     }
     exit();
 }
@@ -56,11 +56,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php';
                     <label>Парола</label>
                     <span></span>
                 </div>
-                <div class="forgotten-pass"><a href="/e-diary/student/forgotten-pass.php">Забравена парола?</a></div>
+                <div class="forgotten-pass"><a href="/e-diary/student/forgotten-pass">Забравена парола?</a></div>
                 <div class="field">
                     <button type="submit" name="student-login-btn">Вход</button>
                 </div>
-                <div class="link-text"><a href="/e-diary/login-teacher.php">Вход за преподаватели/служители.</a></div>
+                <div class="link-text"><a href="/e-diary/teacher/login">Вход за преподаватели</a></div>
             </form>
         </div>
     </div>

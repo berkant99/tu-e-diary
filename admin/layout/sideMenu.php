@@ -2,7 +2,17 @@
     <div>
         <ul>
             <li>
-                <a href="students.php">
+                <a href="home">
+                    <span class="icon">
+                        <i class="fa-solid fa-house"></i>
+                    </span>
+                    <span class="title">
+                        Начало
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="students">
                     <span class="icon">
                         <i class="fa-solid fa-graduation-cap"></i>
                     </span>
@@ -12,12 +22,32 @@
                 </a>
             </li>
             <li>
-                <a href="teachers.php">
+                <a href="teachers">
                     <span class="icon">
                         <i class="fa-solid fa-person-chalkboard"></i>
                     </span>
                     <span class="title">
                         Преподаватели
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="specialties">
+                    <span class="icon">
+                        <i class="fa-solid fa-book"></i>
+                    </span>
+                    <span class="title">
+                        Специалности
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="disciplines">
+                    <span class="icon">
+                        <i class="fa-solid fa-book"></i>
+                    </span>
+                    <span class="title">
+                        Дисциплини
                     </span>
                 </a>
             </li>

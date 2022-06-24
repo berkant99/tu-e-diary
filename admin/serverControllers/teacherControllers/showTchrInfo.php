@@ -127,7 +127,7 @@ if (isset($_POST['tchrId'])) {
                                 </div>
                             </div>
                             <div class="field focused">
-                                <input type="text" name="tchr-department" id="e-tchr-department" style="cursor: pointer; padding-right: 30px;" value="' . $row['dep'] . '" readonly>
+                                <input type="text" name="tchr-department" id="e-tchr-department" style="cursor: pointer; padding-right: 30px;" value="' . $row['dep'] . '">
                                 <input type="hidden" name="tchr-department-id" id="e-tchr-department-id" value="' . $row['department_id'] . '">
                                 <i class="fa fa-chevron-left"></i>
                                 <label>Катедра</label>

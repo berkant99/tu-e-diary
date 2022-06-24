@@ -1,13 +1,13 @@
 <?php
 session_start();
 if (!isset($_SESSION['id'])) {
-    header('location: login.php');
+    header('location: login');
     exit();
 } else if ($_SESSION['firstLogin'] == FALSE) {
-    header('location: first-signin.php');
+    header('location: first-signin');
     exit();
 } else if (!isset($_SESSION['verified'])) {
-    header('location: email-verification.php');
+    header('location: email-verification');
     exit();
 }
 require_once $_SERVER['DOCUMENT_ROOT'] . '/e-diary/layout/header.php';

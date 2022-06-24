@@ -28,17 +28,15 @@
 #info-id,
 #search-box,
 #add-box,
-#edit-box {
+#edit-box,
+#add-group-id,
+#add-individual-id {
     position: relative;
     transition: all 0.3s;
     width: 100%;
     height: calc(100vh - 180px);
     overflow-x: hidden;
     overflow-y: auto;
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
-    scrollbar-width: none;
-    /* Firefox */
 }
 
 .admin #search-box,
@@ -52,8 +50,6 @@
     margin-top: 25px;
     padding: 10px 20px;
 }
-
-
 
 #info-id {
     display: none;
@@ -118,6 +114,22 @@ dl {
     color: #8d3836;
     cursor: pointer;
     font-size: 14px;
+}
+
+.object-center #save-group-grades {
+    background-image: none;
+    background-color: var(--main-color);
+    color: #fff;
+    max-width: 350px;
+    height: 30px;
+    margin: 20px;
+    font-size: 16px;
+    border: none;
+}
+
+.object-center #save-group-grades:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1px 10px 0 var(--main-color);
 }
 
 .profile-pic input {

@@ -1,4 +1,4 @@
-import { formCheckInputs } from "/e-diary/assets/js/jsFunctions.js";
+import { formCheckInputs, filterDropdownList } from "/e-diary/assets/js/jsFunctions.js";
 import { checkNames, checkNumber } from "/e-diary/admin/assets/js/js.js";
 
 function getEventTarget(e) {
@@ -172,17 +172,34 @@ function sendUserLinkId(linkId) {
 
 
 function deleteStudentInfo(id) {
-    let alrt = window.confirm('Сигурни ли сте, че искате да изтриете този студент?');
-    if (alrt) {
-        $.ajax({
-            method: "POST",
-            data: { stId: id },
-            url: "/e-diary/admin/serverControllers/studentsControllers/deleteStudentInfo.php",
-            success: function () {
-                location.reload();
-            }
-        });
-    }
+    Swal.fire({
+        title: 'Внимание',
+        text: "Сигурни ли сте, че искате да изтриете този студент?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#175c93',
+        confirmButtonText: 'Изтриване',
+        cancelButtonText: 'Отказ'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                method: "POST",
+                data: { stId: id },
+                url: "/e-diary/admin/serverControllers/studentsControllers/deleteStudentInfo.php",
+                success: function () {
+                    Swal.fire({
+                        title: 'Данните са изтрити',
+                        showCancelButton: false,
+                        confirmButtonColor: '#175c93',
+                        icon: 'success'
+                    }).then(() => {
+                        location.reload();
+                    })
+                }
+            });
+        }
+    })
 }
 
 function getStudentInfo(id) {
@@ -247,6 +264,10 @@ function getStudentInfo(id) {
                 $('#st-group').parent('.field').removeClass('error');
                 $('#st-group').parent('.field').addClass('focused');
             };
+
+            Estspecialty.onkeyup = function () {
+                filterDropdownList(Estspecialty, Especialty);
+            }
 
             editBtn.onclick = () => {
                 let formData = new FormData(form);
@@ -336,6 +357,10 @@ stGroup.onclick = function (event) {
     $('#st-group').parent('.field').addClass('focused');
 };
 
+stspecialty.onkeyup = function () {
+    filterDropdownList(stspecialty, specialty);
+}
+
 const form = document.getElementById("add-student-form"),
     addBtn = form.querySelector("button"),
     errorStyle = $(".alert-error"),
@@ -383,7 +408,10 @@ addBtn.onclick = () => {
                         successStyle.css('display', 'flex');
                         errorStyle.css('display', 'none');
                         errorText.html("");
-                        setTimeout(function () { successStyle.fadeOut(1000) }, 10000);
+                        setTimeout(function () {
+                            successStyle.fadeOut(1000);
+                            location.reload();
+                        }, 3000);
                     } else if (data != '') {
                         errorStyle.fadeIn('fast');
                         errorText.html(data);

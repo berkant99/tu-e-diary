@@ -1,4 +1,4 @@
-import { formCheckInputs, checkEmail } from "/e-diary/assets/js/jsFunctions.js";
+import { formCheckInputs, checkEmail, filterDropdownList } from "/e-diary/assets/js/jsFunctions.js";
 import { checkNames, checkNumber } from "/e-diary/admin/assets/js/js.js";
 
 function getEventTarget(e) {
@@ -66,17 +66,34 @@ function getUserLinkId() {
 }
 
 function deleteTeacherInfo(id) {
-    let alrt = window.confirm('Сигурни ли сте, че искате да изтриете този преподавател?');
-    if (alrt) {
-        $.ajax({
-            method: "POST",
-            data: { tchrId: id },
-            url: "/e-diary/admin/serverControllers/teacherControllers/deleteTchrInfo.php",
-            success: function () {
-                location.reload();
-            }
-        });
-    }
+    Swal.fire({
+        title: 'Внимание',
+        text: "'Сигурни ли сте, че искате да изтриете този преподавател?'",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#175c93',
+        confirmButtonText: 'Изтриване',
+        cancelButtonText: 'Отказ'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                method: "POST",
+                data: { tchrId: id },
+                url: "/e-diary/admin/serverControllers/teacherControllers/deleteTchrInfo.php",
+                success: function () {
+                    Swal.fire({
+                        title: 'Данните са изтрити',
+                        showCancelButton: false,
+                        confirmButtonColor: '#175c93',
+                        icon: 'success'
+                    }).then(() => {
+                        location.reload();
+                    })
+                }
+            });
+        }
+    })
 }
 
 function sendUserLinkId(linkId) {
@@ -165,6 +182,10 @@ function getTeacherInfo(id) {
                 $('#e-tchr-department').parent('.field').removeClass('error');
                 $('#e-tchr-department').parent('.field').addClass('focused');
             };
+
+            tchrDep.onkeyup = function () {
+                filterDropdownList(tchrDep,department);
+            }
 
             function checkForm() {
                 let flag = true;
@@ -306,6 +327,10 @@ department.onclick = function (event) {
     $('#tchr-department').parent('.field').removeClass('error');
     $('#tchr-department').parent('.field').addClass('focused');
 };
+
+tchrDep.onkeyup = function () {
+    filterDropdownList(tchrDep,department);
+}
 
 const form = document.getElementById("add-teacher-form"),
     addBtn = form.querySelector("button"),

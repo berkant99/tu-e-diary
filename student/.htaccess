@@ -1,0 +1,11 @@
+RewriteEngine On 
+RewriteRule ^login login.php [NC,L]
+RewriteRule ^first-signin first-signin.php [NC,L]
+RewriteRule ^email-verification email-verification.php [NC,L]
+RewriteRule ^forgotten-pass forgotten-pass.php [NC,L]
+RewriteRule ^grades grades.php [NC,L]
+RewriteRule ^home index.php [NC,L]
+RewriteRule ^messages messages.php [NC,L]
+RewriteRule ^reset-password reset-password.php [NC,L]
+RewriteRule ^settings settings.php [NC,L]
+RewriteRule ^teachers teachers.php [NC,L]

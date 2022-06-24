@@ -1,2 +1,9 @@
 ErrorDocument 403 /e-diary/403/forbidden.php
 Require local
+RewriteEngine On 
+RewriteRule ^login login.php [NC,L]
+RewriteRule ^home index.php [NC,L]
+RewriteRule ^specialties specialties.php [NC,L]
+RewriteRule ^disciplines disciplines.php [NC,L]
+RewriteRule ^teachers teachers.php [NC,L]
+RewriteRule ^students students.php [NC,L]

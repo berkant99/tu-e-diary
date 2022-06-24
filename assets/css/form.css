@@ -264,9 +264,20 @@ form .select-dropdown ul li:hover {
 #add-teacher-form .field input,
 #add-student-form .field input,
 #edit-teacher-form .field input,
-#edit-student-form .field input {
+#edit-student-form .field input,
+#add-specialty-form .field input,
+#add-discipline-form .field input,
+#add-iGrade-form .field input,
+#add-st-grade-form .field input,
+#edit-st-grade-form .field input,
+#add-groupGrade-form .field input {
     border-radius: 0px;
     padding: 0 15px;
+}
+
+td input,
+td select{
+    cursor: pointer;
 }
 
 @media(max-width: 410px) {
